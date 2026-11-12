@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f3ed">
+    <meta name="description" content="Explore our restaurant menu.">
+
+    <title>MAISON — Restaurant Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body data-theme="atelier">
+
+    <header class="site-header" id="siteHeader"></header>
+
+    <main>
+
+        <section class="menu-tools">
+
+            <div class="theme-switcher" aria-label="Choose menu design">
+
+                <button class="theme-button is-active" data-theme="atelier">
+                    Atelier
+                </button>
+
+                <button class="theme-button" data-theme="market">
+                    Market
+                </button>
+
+                <button class="theme-button" data-theme="midnight">
+                    Midnight
+                </button>
+
+                <button class="theme-button" data-theme="trattoria">
+                    Trattoria
+                </button>
+
+            </div>
+
+            <label class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="search"
+                    id="menuSearch"
+                    placeholder="Search the menu..."
+                    aria-label="Search menu"
+                    autocomplete="off"
+                >
+
+                <button id="clearSearch" class="clear-search" aria-label="Clear search">
+                    ×
+                </button>
+
+            </label>
+
+        </section>
+
+        <nav class="category-nav" id="categoryNav" aria-label="Menu categories"></nav>
+
+        <section class="menu-content" id="menuContent"></section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-brand">MAISON<span>.</span></div>
+
+        <p>Good food. Good company.</p>
+
+        <div class="footer-meta">
+            <span>FRESHLY PREPARED</span>
+            <span>MENU 2026</span>
+        </div>
+
+    </footer>
+
+</body>
+</html>

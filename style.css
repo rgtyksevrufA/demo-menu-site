@@ -1,0 +1,1022 @@
+
+/* ================================================
+   MAISON — MOBILE FIRST RESTAURANT MENU
+   Four different layouts
+   ================================================ */
+
+:root {
+    --page: #f5f2eb;
+    --surface: #fffefa;
+    --ink: #292921;
+    --muted: #77766d;
+    --line: #e4dfd5;
+    --accent: #a44c35;
+    --display: "DM Serif Display", Georgia, serif;
+    --body: "DM Sans", Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ================================================
+   THEME VARIABLES
+   ================================================ */
+
+body[data-theme="atelier"] {
+    --page: #f5f2eb;
+    --surface: #fffefa;
+    --ink: #292921;
+    --muted: #77766d;
+    --line: #e4dfd5;
+    --accent: #a44c35;
+}
+
+body[data-theme="market"] {
+    --page: #eeece3;
+    --surface: #faf9f3;
+    --ink: #283c30;
+    --muted: #788078;
+    --line: #d9d9cb;
+    --accent: #526b4d;
+}
+
+body[data-theme="midnight"] {
+    color-scheme: dark;
+    --page: #121715;
+    --surface: #1d2521;
+    --ink: #f1eee5;
+    --muted: #a4aaa3;
+    --line: #384039;
+    --accent: #d7b777;
+}
+
+body[data-theme="trattoria"] {
+    --page: #f3e9d8;
+    --surface: #fff9ef;
+    --ink: #482f23;
+    --muted: #927965;
+    --line: #e5d4bd;
+    --accent: #a54530;
+}
+
+/* ================================================
+   SHARED HEADER
+   ================================================ */
+
+.site-header {
+    width: 100%;
+}
+
+.header-inner {
+    width: 100%;
+    padding: 25px 19px 26px;
+}
+
+.brand-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 23px;
+}
+
+.brand {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: .09em;
+}
+
+.brand span {
+    color: var(--accent);
+}
+
+.header-note {
+    font-size: 8px;
+    color: var(--muted);
+    letter-spacing: .12em;
+    text-align: right;
+}
+
+.hero-kicker {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-family: var(--display);
+    font-weight: 400;
+    letter-spacing: -.035em;
+}
+
+.hero-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+    max-width: 440px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================================================
+   ATELIER HEADER
+   Editorial split composition
+   ================================================ */
+
+body[data-theme="atelier"] .atelier-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+body[data-theme="atelier"] .hero-title {
+    font-size: clamp(58px, 15vw, 82px);
+    line-height: .91;
+    margin: 13px 0 16px;
+}
+
+body[data-theme="atelier"] .hero-title em {
+    color: var(--accent);
+}
+
+.atelier-photo {
+    height: 220px;
+    position: relative;
+}
+
+.atelier-photo img {
+    height: 100%;
+}
+
+.atelier-photo-caption {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: var(--surface);
+    color: var(--ink);
+    padding: 9px 12px;
+    font-size: 8px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.atelier-note {
+    margin-top: 17px;
+    font-size: 9px;
+    letter-spacing: .1em;
+    color: var(--muted);
+}
+
+/* ================================================
+   MARKET HEADER
+   Bistro style banner
+   ================================================ */
+
+body[data-theme="market"] .header-inner {
+    padding-bottom: 0;
+}
+
+.market-hero {
+    display: flex;
+    flex-direction: column;
+    background: #e0e3d7;
+}
+
+.market-hero-copy {
+    padding: 28px 22px;
+}
+
+.market-hero .hero-title {
+    font-size: clamp(51px, 13vw, 75px);
+    line-height: .95;
+    margin: 12px 0;
+}
+
+.market-hero .hero-description {
+    color: #687567;
+}
+
+.market-photo {
+    height: 190px;
+}
+
+.market-photo img {
+    height: 100%;
+}
+
+/* ================================================
+   MIDNIGHT HEADER
+   Cinematic image with overlay
+   ================================================ */
+
+body[data-theme="midnight"] .header-inner {
+    padding-bottom: 0;
+    background: #111713;
+    color: #f4efe3;
+}
+
+body[data-theme="midnight"] .header-note {
+    color: #b4b6aa;
+}
+
+.midnight-hero {
+    min-height: 360px;
+    display: flex;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+    padding: 27px 21px 34px;
+}
+
+.midnight-hero > img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+.midnight-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(7, 13, 9, .92),
+        rgba(7, 13, 9, .24)
+    );
+}
+
+.midnight-hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.midnight-hero .hero-kicker {
+    color: #ddc38f;
+}
+
+.midnight-hero .hero-title {
+    font-size: clamp(62px, 15vw, 88px);
+    line-height: .9;
+    margin: 12px 0;
+}
+
+.midnight-hero .hero-title em {
+    color: #ddc38f;
+}
+
+.midnight-hero .hero-description {
+    color: #d3d3c9;
+}
+
+/* ================================================
+   TRATTORIA HEADER
+   Italian restaurant / traditional menu
+   ================================================ */
+
+body[data-theme="trattoria"] .header-inner {
+    padding-bottom: 0;
+}
+
+.trattoria-brand {
+    text-align: center;
+    padding: 10px 0 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.trattoria-brand .brand {
+    font-family: var(--display);
+    font-size: 34px;
+    letter-spacing: .04em;
+}
+
+.trattoria-brand .header-note {
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+    letter-spacing: .2em;
+}
+
+.trattoria-hero {
+    position: relative;
+    margin-top: 20px;
+    height: 245px;
+    overflow: hidden;
+}
+
+.trattoria-hero img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.trattoria-hero-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,.75));
+    font-family: var(--display);
+    font-size: 29px;
+    text-align: center;
+}
+
+/* ================================================
+   THEME SWITCHER
+   Horizontal swipe on mobile
+   ================================================ */
+
+.menu-tools {
+    padding: 17px 19px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.theme-switcher {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+}
+
+.theme-switcher::-webkit-scrollbar {
+    display: none;
+}
+
+.theme-button {
+    flex: 0 0 auto;
+    border: 1px solid var(--line);
+    background: transparent;
+    border-radius: 30px;
+    padding: 9px 14px;
+    font-size: 10px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: .2s;
+}
+
+.theme-button.is-active {
+    background: var(--ink);
+    color: var(--page);
+    border-color: var(--ink);
+}
+
+.search-box {
+    width: 100%;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.search-icon {
+    font-size: 21px;
+    color: var(--muted);
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: 12px;
+}
+
+.clear-search {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* ================================================
+   CATEGORY NAVIGATION
+   ================================================ */
+
+.category-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    gap: 24px;
+    padding: 0 19px;
+    background: var(--page);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.category-button {
+    position: relative;
+    flex: 0 0 auto;
+    padding: 15px 0;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.category-button.is-active {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.category-button.is-active::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    background: var(--accent);
+}
+
+/* ================================================
+   MENU CONTENT
+   ================================================ */
+
+.menu-content {
+    padding: 30px 19px 65px;
+    min-height: 340px;
+}
+
+.menu-heading {
+    margin-bottom: 22px;
+}
+
+.menu-eyebrow {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .17em;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.menu-heading h2 {
+    font-family: var(--display);
+    font-size: 39px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 7px 0;
+}
+
+.menu-heading p {
+    font-size: 10px;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* ================================================
+   SHARED DISH STYLES
+   ================================================ */
+
+.dish-card {
+    min-width: 0;
+}
+
+.dish-photo {
+    overflow: hidden;
+    background: var(--line);
+}
+
+.dish-photo img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.dish-card:hover .dish-photo img {
+    transform: scale(1.035);
+}
+
+.dish-info {
+    padding: 13px 0 17px;
+}
+
+.dish-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.dish-name {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.dish-price {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    flex: 0 0 auto;
+}
+
+.dish-ingredients {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.65;
+    margin: 7px 0 0;
+}
+
+/* ================================================
+   ATELIER MENU
+   Large feature card + smaller grid
+   ================================================ */
+
+.layout-atelier .dish-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.layout-atelier .dish-card {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+}
+
+.layout-atelier .dish-photo {
+    height: 200px;
+}
+
+.layout-atelier .dish-card--feature .dish-photo {
+    height: 250px;
+}
+
+.layout-atelier .dish-card--feature .dish-name {
+    font-size: 27px;
+}
+
+/* ================================================
+   MARKET MENU
+   Category-based rows and thumbnails
+   ================================================ */
+
+.layout-market .market-group {
+    margin-bottom: 30px;
+}
+
+.market-group-title {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 27px;
+    color: var(--accent);
+    margin: 0 0 13px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--line);
+}
+
+.market-row {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.market-row img {
+    width: 76px;
+    height: 75px;
+}
+
+.market-row .dish-info {
+    padding: 0;
+}
+
+.market-row .dish-name {
+    font-size: 17px;
+}
+
+.market-row .dish-ingredients {
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.market-row .dish-price {
+    align-self: start;
+    padding-top: 3px;
+}
+
+/* ================================================
+   MIDNIGHT MENU
+   Image-led dark cards
+   ================================================ */
+
+.layout-midnight .dish-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.layout-midnight .dish-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.layout-midnight .dish-photo {
+    height: 220px;
+}
+
+.layout-midnight .dish-info {
+    padding: 16px;
+}
+
+.layout-midnight .dish-name {
+    font-size: 24px;
+}
+
+.layout-midnight .dish-ingredients {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* ================================================
+   TRATTORIA MENU
+   Paper menu, typography-led, no card grid
+   ================================================ */
+
+.layout-trattoria {
+    padding: 22px 17px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+}
+
+.layout-trattoria .menu-heading {
+    text-align: center;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+}
+
+.layout-trattoria .menu-heading h2 {
+    font-size: 39px;
+}
+
+.trattoria-section {
+    padding-top: 22px;
+}
+
+.trattoria-section-title {
+    margin: 0 0 15px;
+    text-align: center;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 26px;
+    color: var(--accent);
+}
+
+.trattoria-row {
+    margin-bottom: 19px;
+}
+
+.trattoria-dish-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.trattoria-dish-line::after {
+    content: "";
+    flex: 1;
+    min-width: 12px;
+    order: 1;
+    border-bottom: 1px dotted var(--muted);
+}
+
+.trattoria-dish-name {
+    order: 0;
+    margin: 0;
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.trattoria-dish-price {
+    order: 2;
+    font-weight: 700;
+    font-size: 12px;
+    white-space: nowrap;
+    color: var(--accent);
+}
+
+.trattoria-ingredients {
+    margin: 5px 0 0;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+/* ================================================
+   EMPTY SEARCH RESULTS
+   ================================================ */
+
+.empty-state {
+    padding: 55px 15px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    border: 1px dashed var(--line);
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    padding: 33px 19px 24px;
+    text-align: center;
+}
+
+.footer-brand {
+    font-family: var(--display);
+    font-size: 24px;
+    letter-spacing: .1em;
+}
+
+.footer-brand span {
+    color: var(--accent);
+}
+
+.site-footer p {
+    color: var(--muted);
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 16px;
+    margin: 6px 0 23px;
+}
+
+.footer-meta {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 8px;
+    letter-spacing: .13em;
+    color: var(--muted);
+}
+
+/* ================================================
+   TABLET
+   ================================================ */
+
+@media (min-width: 650px) {
+
+    .header-inner,
+    .menu-tools,
+    .category-nav,
+    .menu-content {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .header-inner {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+
+    body[data-theme="atelier"] .atelier-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .atelier-photo {
+        height: 310px;
+    }
+
+    .market-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: stretch;
+    }
+
+    .market-hero-copy {
+        padding: 42px;
+        align-self: center;
+    }
+
+    .market-photo {
+        height: 310px;
+    }
+
+    .midnight-hero {
+        min-height: 440px;
+        padding: 45px 35px;
+    }
+
+    .trattoria-hero {
+        height: 340px;
+    }
+
+    .menu-tools {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        width: 240px;
+        flex: 0 0 240px;
+    }
+
+    .layout-atelier .dish-grid,
+    .layout-midnight .dish-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+
+    .layout-atelier .dish-card--feature {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+    }
+
+    .layout-atelier .dish-card--feature .dish-photo {
+        height: 290px;
+    }
+
+    .layout-atelier .dish-card--feature .dish-info {
+        align-self: center;
+        padding: 25px;
+    }
+
+    .layout-atelier .dish-card:not(.dish-card--feature) .dish-photo,
+    .layout-midnight .dish-photo {
+        height: 220px;
+    }
+
+    .market-row {
+        grid-template-columns: 90px minmax(0, 1fr) auto;
+    }
+
+    .market-row img {
+        width: 90px;
+        height: 80px;
+    }
+
+    .layout-trattoria {
+        padding: 35px;
+    }
+
+}
+
+/* ================================================
+   DESKTOP
+   ================================================ */
+
+@media (min-width: 1000px) {
+
+    .header-inner {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 45px;
+    }
+
+    body[data-theme="atelier"] .atelier-hero {
+        gap: 75px;
+    }
+
+    body[data-theme="atelier"] .hero-title {
+        font-size: 88px;
+    }
+
+    .atelier-photo {
+        height: 390px;
+    }
+
+    .market-hero .hero-title {
+        font-size: 76px;
+    }
+
+    .market-hero-copy {
+        padding: 55px;
+    }
+
+    .market-photo {
+        height: 380px;
+    }
+
+    .midnight-hero {
+        min-height: 520px;
+        padding: 65px;
+    }
+
+    .midnight-hero .hero-title {
+        font-size: 100px;
+    }
+
+    .trattoria-hero {
+        height: 390px;
+    }
+
+    .menu-tools,
+    .category-nav,
+    .menu-content {
+        max-width: 1150px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .layout-atelier .dish-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .layout-atelier .dish-card--feature {
+        grid-column: span 2;
+    }
+
+    .layout-midnight .dish-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .layout-midnight .dish-photo {
+        height: 245px;
+    }
+
+    .market-board {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 45px 70px;
+    }
+
+    .layout-trattoria .trattoria-board {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 55px;
+    }
+
+}
+
+/* ================================================
+   ACCESSIBILITY
+   ================================================ */
+
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
